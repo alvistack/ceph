@@ -1,0 +1,13 @@
+diff --git a/src/rgw/CMakeLists.txt b/src/rgw/CMakeLists.txt
+index 3d4787f7087..46a81ebe744 100644
+--- a/src/rgw/CMakeLists.txt
++++ b/src/rgw/CMakeLists.txt
+@@ -333,7 +333,7 @@ target_include_directories(radosgw PUBLIC "${CMAKE_SOURCE_DIR}/src/dmclock/suppo
+ target_include_directories(radosgw SYSTEM PUBLIC "../rapidjson/include")
+ 
+ target_link_libraries(radosgw
+-  PRIVATE ${rgw_libs} rgw_schedulers kmip
++  PRIVATE ${rgw_libs} rgw_schedulers kmip ceph-common -lstdc++
+   PUBLIC dmclock::dmclock
+ )
+ if(WITH_RADOSGW_BEAST_FRONTEND)
