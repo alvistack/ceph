@@ -33,7 +33,7 @@ git clean -dxf
 # c) compares higher than any previous commit
 # d) contains the short hash of the commit
 #
-vers=$(git describe --match "v*" | sed s/^v//)
+vers="17.2.6"
 ./make-dist $vers
 #
 # rename the tarbal to match debian conventions and extract it
@@ -53,7 +53,7 @@ perl -pi -e 's/--dbg-package.*//' ceph-$vers/debian/rules
 # directory is included in the sources and the upstream version will
 # change each time it is modified.
 #
-dvers="$vers-1"
+dvers="100:$vers-1"
 #
 # update the changelog to match the desired version
 #
