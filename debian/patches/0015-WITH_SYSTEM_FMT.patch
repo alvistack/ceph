@@ -1,0 +1,19 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 0a841c5db37..997f0323ffa 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -323,11 +323,10 @@ endif()
+ option(WITH_FMT_HEADER_ONLY "use header-only version of fmt library" OFF)
+ set(WITH_FMT_VERSION "7.0.0" CACHE
+   STRING "build with fmt version")
+-find_package(fmt ${WITH_FMT_VERSION} QUIET)
+-if(fmt_FOUND)
+-  include_directories(SYSTEM "${fmt_INCLUDE_DIR}")
++option(WITH_SYSTEM_FMT "require and build with system fmt" OFF)
++if (WITH_SYSTEM_FMT)
++  find_package(fmt ${WITH_FMT_VERSION} QUIET)
+ else()
+-  message(STATUS "Could not find fmt, will build it")
+   set(old_BUILD_SHARED_LIBS ${BUILD_SHARED_LIBS})
+   set(BUILD_SHARED_LIBS FALSE)
+   add_subdirectory(fmt)
