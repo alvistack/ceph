@@ -1,0 +1,11 @@
+--- ceph-19.0.0-28-g77e2e020/src/cephadm/build.py.orig	2023-12-14 13:03:12.873138944 -0500
++++ ceph-19.0.0-28-g77e2e020/src/cephadm/build.py	2023-12-14 13:03:31.909811381 -0500
+@@ -73,7 +73,7 @@
+     def __init__(self, cli_args):
+         self.cli_args = cli_args
+         self._maj_min = sys.version_info[0:2]
+-        self.install_dependencies = True
++        self.install_dependencies = False
+         self.deps_mode = DependencyMode[cli_args.bundled_dependencies]
+         if self.deps_mode == DependencyMode.none:
+             self.install_dependencies = False
